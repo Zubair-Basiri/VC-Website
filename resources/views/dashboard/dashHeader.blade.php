@@ -241,7 +241,7 @@
           </li>
           <li>
             <a href="{{ route('video.index') }}">
-              <i class="bi bi-circle"></i><span>Viedo</span>
+              <i class="bi bi-circle"></i><span>Video</span>
             </a>
           </li>
         </ul>

@@ -27,10 +27,14 @@
 
     <h3>Uploaded Videos</h3>
     <ul>
-        <video autoplay muted loop playsinline style="width: 1000px; height: 550px; object-fit: cover;">
-            <source src="{{ asset('storage/' . $videos->video) }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        @if ($videos)
+            <video autoplay muted loop playsinline style="width:1000px; height:550px; object-fit:cover;">
+                <source src="{{ asset('storage/' . $videos->video) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        @else
+            <p>No video uploaded yet.</p>
+        @endif
     </ul>
 </div>
 @endsection

@@ -9,10 +9,14 @@
 @section('content')
 
 <div class="site-section video-section">
-    <video autoplay muted loop playsinline>
-        <source src="{{ asset('storage/' . $video->video) }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    @if ($video)
+        <video autoplay muted loop playsinline>
+            <source src="{{ asset('storage/' . $video->video) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    @else
+        <p class="text-center">Yet no Video.</p>
+    @endif
 </div>
 
 <div class="hero-slide owl-carousel site-blocks-cover">
