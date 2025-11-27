@@ -298,18 +298,24 @@ jQuery(document).ready(function($) {
 	// navigation
   var OnePageNavigation = function() {
     var navToggler = $('.site-menu-toggle');
-   	$("body").on("click", ".main-menu li a[href^='#'], .smoothscroll[href^='#'], .site-mobile-menu .site-nav-wrap li a", function(e) {
-      e.preventDefault();
+   	$("body").on("click", ".main-menu li a, .smoothscroll, .site-mobile-menu .site-nav-wrap li a", function(e) {
+    var hash = this.hash;
 
-      var hash = this.hash;
+    if (hash && hash.startsWith("#") && $(hash).length) {
+        e.preventDefault();
 
-      $('html, body').animate({
-        'scrollTop': $(hash).offset().top
-      }, 600, 'easeInOutCirc', function(){
-        window.location.hash = hash;
-      });
+        $('html, body').animate({
+            'scrollTop': $(hash).offset().top
+        }, 600, 'easeInOutCirc', function(){
+            window.location.hash = hash;
+        });
 
-    });
+        if ($('body').hasClass('offcanvas-menu')) {
+            $('body').removeClass('offcanvas-menu');
+            $('.js-menu-toggle').removeClass('active');
+        }
+    }
+});
   };
   OnePageNavigation();
 

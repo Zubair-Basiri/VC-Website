@@ -61,9 +61,8 @@
                     <ul class="dropdown">
                     <li><a href="https://ajss.kdru.edu.af/" target="_blank">Arghand Journal of Social Sciences</a></li>
                     <li><a href="https://gandhara.kdru.edu.af/" target="_blank">Gandhara Journal of Natural Sciences</a></li>
-                    <li><a href="#">Mandigak Journal of Social Sciences</a></li>
-                    <li><a href="#">Narang Journal of Natural Sciences</a></li>
-                    <li><a href="https://rimj.org/pubs/index.php/journal">Razi Journal of Medical Sciences</a></li>
+                    <li><a href="#">Mandigak Journal of Social Sciences (coming soon...)</a></li>
+                    <li><a href="#">Narang Journal of Natural Sciences (coming soon...)</a></li>
                     </ul>
                 </li>
                 <li class="has-children">
