@@ -40,7 +40,7 @@
                     <ul class="dropdown">
                     <li><a href="{{ route('ourVision') }}">Our Vision</a></li>
                     <li><a href="{{ route('ourMission') }}">Our Mission</a></li>
-                    <li><a href="{{ route('policies') }}">Policy</a></li>
+                    <li><a href="{{ route('policies') }}">Our Policy</a></li>
                     <li><a href="{{ route('objective') }}">Objectives</a></li>
                     <li><a href="{{ route('priority') }}">Priorities</a></li>
                     <li><a href="{{ route('strategicPlans') }}">Strategic Plan</a></li>
@@ -61,8 +61,8 @@
                     <ul class="dropdown">
                     <li><a href="https://ajss.kdru.edu.af/" target="_blank">Arghand Journal of Social Sciences</a></li>
                     <li><a href="https://gandhara.kdru.edu.af/" target="_blank">Gandhara Journal of Natural Sciences</a></li>
-                    <li><a href="#">Mandigak Journal of Social Sciences (coming soon...)</a></li>
-                    <li><a href="#">Narang Journal of Natural Sciences (coming soon...)</a></li>
+                    <li><a href="#">Mandigak Journal of Social Sciences</a></li>
+                    <li><a href="#">Narang Journal of Natural Sciences</a></li>
                     </ul>
                 </li>
                 <li class="has-children">
@@ -81,6 +81,7 @@
                     <li><a href="{{ route('plans') }}">Plans</a></li>
                     <li><a href="{{ route('reports') }}">Reports</a></li>
                     <li><a href="{{ route('statistics') }}">Statistics</a></li>
+                    <li><a href="{{ route('policies') }}">Policies</a></li>
                     <li class="has-children">
                         <a href="#" class="nav-link text-left">Publications</a>
                         <ul class="dropdown">

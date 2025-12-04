@@ -8,7 +8,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="{{ asset('assets/images/VCLogo.png') }}" rel="icon">
+  <link href="{{ asset('images/VCLogo.jpg') }}" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -32,9 +32,9 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="{{ asset('images/VCLogo.png') }}" alt="">
-                  <span class="d-none d-lg-block">VC Research</span>
+                <a href="{{route('home')}}" class="logo d-flex align-items-center w-auto">
+                  <img src="{{ asset('images/VCLogo.jpg') }}" alt="">
+                  <h3 class="d-none d-lg-block" style="color:black; text-decoration:none;">VC Research</h3>
                 </a>
               </div>
 

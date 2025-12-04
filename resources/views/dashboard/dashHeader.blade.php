@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="#" class="logo d-flex align-items-center">
-        <img src="{{ asset('images/VCLogo.png') }}" alt="">
+        <img src="{{ asset('images/VCLogo.jpg') }}" alt="">
         <span class="d-none d-lg-block">VC Research</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -82,7 +82,7 @@
           </li>
           <li>
             <a href="{{ route('policy.index')}}">
-              <i class="bi bi-circle"></i><span>Policies</span>
+              <i class="bi bi-circle"></i><span>Our Policy</span>
             </a>
           </li>
           <li>
@@ -209,6 +209,11 @@
           <li>
             <a href="{{ route('statistic.index') }}">
               <i class="bi bi-circle"></i><span>Statistics</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('genPolicy.index') }}">
+              <i class="bi bi-circle"></i><span>Policies</span>
             </a>
           </li>
         </ul>

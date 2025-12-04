@@ -37,6 +37,7 @@ use App\Http\Controllers\Dashboard\Resource\PlanController;
 use App\Http\Controllers\Dashboard\Resource\ReportController;
 use App\Http\Controllers\Dashboard\Resource\StaffPublicationController;
 use App\Http\Controllers\Dashboard\Resource\StatisticController;
+use App\Http\Controllers\Dashboard\Resource\AllPoliciesController;
 use App\Http\Controllers\Dashboard\Resource\FreeDatabasesController;
 use App\Models\Achievement;
 use Illuminate\Support\Facades\Route;
@@ -84,6 +85,7 @@ Route::get('/forums',[ResourceController::class,'forums'])->name('forums');
 Route::get('/plans',[ResourceController::class,'plans'])->name('plans');
 Route::get('/reports',[ResourceController::class,'reports'])->name('reports');
 Route::get('/statistics',[ResourceController::class,'statistics'])->name('statistics');
+Route::get('/policies',[ResourceController::class,'policies'])->name('policies');
 Route::get('/theses',[ResourceController::class,'thesis'])->name('theses');
 Route::get('/monographs',[ResourceController::class,'monographs'])->name('monographs');
 Route::get('/digitalLibraries',[ResourceController::class,'digitalLibraries'])->name('digitalLibraries');
@@ -167,6 +169,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('report', ReportController::class);
     //Statistics
     Route::resource('statistic', StatisticController::class);
+    //Policies
+    Route::resource('genPolicy', AllPoliciesController::class);
     //Academic Paper
     Route::resource('paper', AcademicPaperController::class);
     //Digital Library

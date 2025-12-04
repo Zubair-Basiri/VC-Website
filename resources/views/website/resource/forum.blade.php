@@ -20,19 +20,31 @@
 
     <div class="container pt-5 mb-5">
       <div class="row">
-          <div class="col-lg-4" data-aos="fade-right" data-aos-delay="400">
+          <div class="col-lg-2 d-flex align-items-start" data-aos="fade-right" data-aos-delay="400">
             <h2 class="section-title-underline">
               <span>Forms</span>
             </h2>
           </div>
-          @foreach ($forums as $forum)
-            <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
-              <ul>
-                  <li><strong>{{$forum->title}}</strong></li>
-                  <a href="{{ asset('storage/' . $forum->pdfFile) }}" download target="_blank">Download PDF</a>
-              </ul>
+          <div class="col-lg-10">
+            <div class="row">
+                @foreach ($forums as $forum)
+                  <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-delay="400">
+                    <ul>
+                        <li><strong>{{$forum->title}}</strong></li>
+                        @if(!empty($forum->pdfFile))
+                            <li>
+                                <a href="{{ asset('storage/' . $forum->pdfFile) }}" download target="_blank">
+                                    Download PDF
+                                </a>
+                            </li>
+                        @else
+                            <li>No files available</li>
+                        @endif
+                    </ul>
+                  </div>
+                @endforeach
             </div>
-          @endforeach
+          </div>
         </div>
       </div>
 @endsection

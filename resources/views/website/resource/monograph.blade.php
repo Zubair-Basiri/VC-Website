@@ -20,19 +20,23 @@
 
     <div class="container pt-5 mb-5">
             <div class="row">
-              <div class="col-lg-4" data-aos="fade-right" data-aos-delay="400">
+              <div class="col-lg-4 d-flex align-items-start" data-aos="fade-right" data-aos-delay="400">
                 <h2 class="section-title-underline">
                   <span>Bachelor Monographs</span>
                 </h2>
               </div>
-              @foreach ($monographs as $monograph)
-                <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
-                  <ul>
-                      <li><strong>{{$monograph->title}}</strong></li>
-                      <a href="{{ asset('storage/' . $monograph->file) }}" download target="_blank">Download PDF</a>
-                  </ul>
+              <div class="col-lg-10">
+                <div class="row">
+                    @foreach ($monographs as $monograph)
+                      <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-delay="400">
+                        <ul>
+                            <li><strong>{{$monograph->title}}</strong></li>
+                            <a href="{{ asset('storage/' . $monograph->file) }}" download target="_blank">Download PDF</a>
+                        </ul>
+                      </div>
+                    @endforeach
                 </div>
-              @endforeach
+              </div>
             </div>
           </div>
 @endsection

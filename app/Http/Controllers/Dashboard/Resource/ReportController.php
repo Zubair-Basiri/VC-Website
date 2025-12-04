@@ -30,11 +30,15 @@ class ReportController extends Controller
             'pdfFile.mimes' => 'The uploaded file must be a PDF.',
         ]);
 
-        $filePath = $request->file('pdfFile')->store('documents','public');
+        if ($request->hasFile('pdfFile')) {
+            $file = $request->file('pdfFile');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('documents', $filename, 'public');
+        }
 
         Report::create([
             'title'=>$request->title,
-            'pdfFile'=>$filePath,
+            'pdfFile'=>$filename,
         ]);
 
         return redirect()->route('report.index')->with('success','Report added successfully');
@@ -64,13 +68,16 @@ class ReportController extends Controller
         ]);
 
         if($request->hasFile('pdfFile')) {
-            $filePath = $request->file('pdfFile')->store('documents','public');
+            $file = $request->file('pdfFile');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('documents', $filename, 'public');
 
-            if (Storage::disk('public')->exists($report->pdfFile)) {
+            if ($report->pdfFile && Storage::disk('public')->exists($report->pdfFile)) {
                 Storage::disk('public')->delete($report->pdfFile);
             }
-            
-            $report->pdfFile = $filePath;
+
+            // Assign new file path to model
+            $report->pdfFile = $filename;
         }
 
         $report->update([

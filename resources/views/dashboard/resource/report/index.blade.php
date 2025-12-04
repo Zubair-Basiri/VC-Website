@@ -49,7 +49,19 @@
                     <tr>
                       <td>{{$report->id}}</td>
                       <td>{{$report->title}}</td>
-                      <td><a href="{{ asset('storage/' . $report->pdfFile) }}" target="_blank">View File</a></td>
+                      <td>
+                        @if (!empty($report->pdfFile))
+                          <a 
+                              href="{{ asset('storage/documents/' . $report->pdfFile) }}" 
+                              target="_blank"
+                              class="d-block"
+                          >
+                              {{ $report->pdfFile }}
+                          </a>
+                        @else
+                            <span class="text-muted">No files</span>
+                        @endif
+                      </td>
                       <td><b><a href="{{ route('report.edit', $report->id) }}">Edit</a></b>
                         <form action="{{ route('report.destroy', $report->id) }}" method="POST" class="d-inline">
                         @csrf

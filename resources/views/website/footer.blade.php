@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <p class="mb-4"><img src="{{ asset('images/RCLogo.png')}}" alt="Image" class="img-fluid"></p>
+                <p class="mb-4"><img src="{{ asset('images/VCLogo.jpg')}}" alt="Image" class="img-fluid"></p>
                 <p>The Vice Chancellory of Academic Research serves as the driving force behind the advancement of scholarly inquiry and innovation within the university.</p>  
                 <p><a href="{{ route('aboutUs') }}">Learn More</a></p>
             </div>

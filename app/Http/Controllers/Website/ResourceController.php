@@ -6,6 +6,7 @@ use App\Models\Forum;
 use App\Models\Plan;
 use App\Models\Report;
 use App\Models\Statistic;
+use App\Models\GenPolicy;
 use App\Models\AcademicStaffPublication;
 use App\Models\DigitalLibrary;
 use App\Models\AcademicPaper;
@@ -37,6 +38,12 @@ class ResourceController extends Controller
     {
         $statistics = Statistic::all();
         return view('website.resource.statistic', compact('statistics'));
+    }
+
+    public function policies()
+    {
+        $genPolicies = GenPolicy::all();
+        return view('website.resource.Policies', compact('genPolicies'));
     }
 
     public function databases()
