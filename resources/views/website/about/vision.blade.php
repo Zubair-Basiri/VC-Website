@@ -25,7 +25,7 @@
                   <span>Our Vision</span>
                 </h2>
               </div>
-              <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+              <div class="col-lg-8" data-aos="fade-left" data-aos-delay="400">
                 <p>{!!$visions->description!!}</p>
               </div>
             </div>
