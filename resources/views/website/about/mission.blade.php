@@ -25,9 +25,11 @@
                   <span>Our Mission</span>
                 </h2>
               </div>
-              <div class="col-lg-8" data-aos="fade-left" data-aos-delay="400">
-                <p>{!!$missions->description!!}</p>
-              </div>
+              @if(isset($missions) && $missions && ($missions->description ?? false))
+                    <p>{!! Purifier::clean($missions->description) !!}</p>
+                @else
+                    <p class="text-muted">No mission data available.</p>
+                @endif
             </div>
           </div>
 @endsection

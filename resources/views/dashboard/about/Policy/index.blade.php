@@ -47,7 +47,7 @@
                   @foreach ($policies as $policy)
                   <tr>
                     <td>{{$policy->id}}</td>
-                    <td>{!!$policy->description!!}</td>
+                    <td>{!!Purifier::clean($policy->description)!!}</td>
                     <td><b><a href="{{ route('policy.edit', $policy->id) }}">Edit</a></b></td>
                   </tr>
                   @endforeach

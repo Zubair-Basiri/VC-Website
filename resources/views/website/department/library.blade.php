@@ -1,47 +1,55 @@
 @extends('website.master')
 
-@section('title','library')
+@section('title', 'Library')
 
 @section('header')
     @include('website.header')
 @endsection
 
 @section('content')
-
     @include('website.department.departmentDetails')
     
     <div class="custom-breadcrumns border-bottom">
-      <div class="container">
-        <a href="#">Home</a>
-        <span class="mx-3 icon-keyboard_arrow_right"></span>
-        <span class="current">Departments</span>
-      </div>
+        <div class="container">
+            <a href="{{ url('/') }}">Home</a>
+            <span class="mx-3 icon-keyboard_arrow_right"></span>
+            <span class="current">Departments</span>
+        </div>
     </div>
 
     <div class="container pt-4 mb-5">
         <div class="text-center">
             <h2 class="section-title-underline">
-                  <span><strong>Library</strong></span>
+                <span><strong>Library</strong></span>
             </h2>
         </div>
-        @foreach ($libraries as $library)
+
+        @if(isset($libraries) && $libraries->count() > 0)
+            @foreach ($libraries as $library)
+                <div class="row">
+                    <hr class="my-4" style="border: 0; border-top: 2px solid #808481; width: 100%; margin: auto;">  
+                    <div class="col-lg-4 d-flex align-items-center justify-content-center" style="color:black;" data-aos="zoom-in" data-aos-delay="400">
+                        <h4>
+                            <span>{{ $library->title }}</span>
+                        </h4>
+                    </div>
+                    <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="400">
+                        <p>{{ $library->description }}</p>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
+                        <p>{{ $library->info }}</p>
+                        <a href="{{ $library->link }}" target="_blank" class="btn btn-primary bgColorbtn rounded-0 px-2">Click Here</a>
+                    </div>
+                </div>
+            @endforeach
+        @else
             <div class="row">
-              <hr class="my-4" style="border: 0; border-top: 2px solid #808481; width: 100%; margin: auto;">  
-              <div class="col-lg-4 d-flex align-items-center justify-content-center" style="color:black;" data-aos="zoom-in" data-aos-delay="400">
-                <h4>
-                  <span>{{$library->title}}</span>
-                </h4>
-              </div>
-              <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="400">
-                <p>{{$library->description}}</p>
-              </div>
-              <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
-                <p>{{$library->info}}</p>
-                <a href="{{$library->link}}" target="_blank" class="btn btn-primary bgColorbtn rounded-0 px-2">Click Here</a>
-              </div>
+                <div class="col-12 text-center">
+                    <p class="text-muted">No library information available at the moment.</p>
+                </div>
             </div>
-        @endforeach
-          </div>
+        @endif
+    </div>
 @endsection
 
 @section('footer')

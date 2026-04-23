@@ -47,7 +47,7 @@
                   @foreach ($strategicPlans as $strategicPlan)
                     <tr>
                       <td>{{$strategicPlan->id}}</td>
-                      <td>{!!$strategicPlan->description!!}</td>
+                      <td>{!!Purifier::clean($strategicPlan->description)!!}</td>
                       <td><b><a href="{{ route('strategicPlan.edit', $strategicPlan->id) }}">Edit</a></b></td>
                     </tr>
                   @endforeach

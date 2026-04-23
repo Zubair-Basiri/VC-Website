@@ -100,4 +100,6 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'conference_email' => env('MAIL_CONFERENCE_EMAIL', 'conference@example.com'),
+
 ];

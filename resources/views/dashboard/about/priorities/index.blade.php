@@ -47,7 +47,7 @@
                   @foreach ($priorities as $priority)
                   <tr>
                     <td>{{$priority->id}}</td>
-                    <td>{!!$priority->description!!}</td>
+                    <td>{!!Purifier::clean($priority->description)!!}</td>
                     <td><b><a href="{{ route('priorities.edit', $priority->id) }}">Edit</a></b></td>
                   </tr>
                   @endforeach

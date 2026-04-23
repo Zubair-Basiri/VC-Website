@@ -49,7 +49,7 @@
                     <tr>
                       <td>{{$workshop->id}}</td>
                       <td>{{$workshop->title}}</td>
-                      <td>{!!$workshop->description!!}</td>
+                      <td>{!!Purifier::clean($workshop->description)!!}</td>
                       <td><b><a href="{{ route('workshop.edit', $workshop->id) }}">Edit</a></b>
                         <form action="{{ route('workshop.destroy', $workshop->id) }}" method="POST" class="d-inline">
                         @csrf

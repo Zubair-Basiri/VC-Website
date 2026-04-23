@@ -47,7 +47,7 @@
                   @foreach ($aboutUs as $about)
                     <tr>
                       <td>{{$about->id}}</td>
-                      <td>{!!$about->description!!}</td>
+                      <td>{!!Purifier::clean($about->description)!!}</td>
                       <td><b><a href="{{ route('about.edit', $about->id) }}">Edit</a></b></td>
                     </tr>
                   @endforeach

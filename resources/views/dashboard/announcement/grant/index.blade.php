@@ -49,7 +49,7 @@
                     <tr>
                       <td>{{$grant->id}}</td>
                       <td>{{$grant->title}}</td>
-                      <td>{!!$grant->description!!}</td>
+                      <td>{!!Purifier::clean($grant->description)!!}</td>
                       <td><b><a href="{{ route('grant.edit', $grant->id) }}">Edit</a></b>
                         <form action="{{ route('grant.destroy', $grant->id) }}" method="POST" class="d-inline">
                         @csrf

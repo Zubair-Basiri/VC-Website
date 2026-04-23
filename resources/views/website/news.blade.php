@@ -20,33 +20,36 @@
 
     <div class="custom-breadcrumns border-bottom">
         <div class="container">
-            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ url('/') }}">Home</a>
             <span class="mx-3 icon-keyboard_arrow_right"></span>
             <span class="current">Latest News & Announcements</span>
         </div>
     </div>
 
     <div class="container mt-5">
-        <h2 class="mb-4"></h2>
-        @foreach ($announcements as $announcement)
-            <div class="card news-card">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{asset('storage/' . $announcement->image)}}" class="img-fluid rounded-start" alt="News Image">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$announcement->title}}</h5>
-                            <p class="text-muted mb-2">Date: {{$announcement->created_at}}</p>
-                            <p class="card-text news-description collapsed-text" id="desc1">
-                                {{$announcement->description}}
-                            </p>
-                            <a href="javascript:void(0);" class="btn btn-link p-0" onclick="toggleDescription('desc1', this)">See More</a>
+        @if(isset($announcements) && $announcements->count() > 0)
+            @foreach ($announcements as $announcement)
+                <div class="card news-card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ asset('storage/' . $announcement->image) }}" class="img-fluid rounded-start" alt="News Image">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $announcement->title }}</h5>
+                                <p class="text-muted mb-2">Date: {{ $announcement->created_at }}</p>
+                                <p class="card-text news-description collapsed-text" id="desc1">
+                                    {{ $announcement->description }}
+                                </p>
+                                <a href="javascript:void(0);" class="btn btn-link p-0" onclick="toggleDescription('desc1', this)">See More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @else
+            <p class="text-center text-muted">No news or announcements available at the moment.</p>
+        @endif
     </div>
 
 @endsection

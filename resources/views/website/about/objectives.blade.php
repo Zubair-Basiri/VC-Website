@@ -25,9 +25,11 @@
                   <span>Our Objectives</span>
                 </h2>
               </div>
-              <div class="col-lg-8" data-aos="fade-left" data-aos-delay="400">
-                <p>{!!$objectives->description!!}</p>
-              </div>
+              @if(isset($objectives) && $objectives && ($objectives->description ?? false))
+                    <p>{!! Purifier::clean($objectives->description) !!}</p>
+                @else
+                    <p class="text-muted">No objectives data available.</p>
+                @endif
             </div>
           </div>
 @endsection

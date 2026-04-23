@@ -94,6 +94,8 @@ Route::get('/facultyLogo',[ResourceController::class,'facultyLogo'])->name('facu
 Route::get('/showLecturer/{faculty}',[ResourceController::class,'showLecturer'])->name('showLecturer');
 Route::get('/showPublication/{lecturer}',[ResourceController::class,'showPublication'])->name('showPublication');
 Route::get('/databases',[ResourceController::class,'databases'])->name('databases');
+Route::post('/conference-submit-abstract', [AnnouncementController::class, 'submitAbstract'])->name('conference.submit.abstract');
+Route::post('/conference-submit-paper', [AnnouncementController::class, 'submitPaper'])->name('conference.submit.paper');
 
 
 Route::middleware(['auth'])->group(function () {

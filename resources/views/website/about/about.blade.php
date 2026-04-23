@@ -24,7 +24,11 @@
           <h2 class="section-title-underline" style="margin-bottom: 1.5rem;">
             <span><strong>About Us</strong></span>
           </h2>
-          <p>{!! $abouts->description !!}</p>
+          @if(isset($abouts) && $abouts && ($abouts->description ?? false))
+                    <p>{!! Purifier::clean($abouts->description) !!}</p>
+                @else
+                    <p class="text-muted">No about data available.</p>
+                @endif
         </div>
       </div>
     </div>

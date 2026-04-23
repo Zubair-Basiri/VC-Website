@@ -25,9 +25,11 @@
                   <span>Our Priorities</span>
                 </h2>
               </div>
-              <div class="col-lg-8" data-aos="fade-left" data-aos-delay="400">
-                <p>{!!$priorities->description!!}</p>
-              </div>
+              @if(isset($priorities) && $priorities && ($priorities->description ?? false))
+                    <p>{!! Purifier::clean($priorities->description) !!}</p>
+                @else
+                    <p class="text-muted">No priorities data available.</p>
+                @endif
             </div>
           </div>
 @endsection

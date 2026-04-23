@@ -518,7 +518,7 @@ h1, h2, h3, h4, h5,
   width: 100%;
   background: #fff; }
   .sticky-wrapper + .site-blocks-cover {
-    margin-top: 96px; }
+    margin-top: 110px; }
   .sticky-wrapper .site-navbar {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
@@ -1201,3 +1201,153 @@ h1, h2, h3, h4, h5,
   color: #fff;
   text-align: center;
 }
+
+#submissionModal .modal-dialog {
+            max-width: 850px;
+        }
+        #submissionModal .modal-content {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+        }
+        #submissionModal .modal-header {
+            background: linear-gradient(135deg, #0a2b4e 0%, #1a4a7a 100%);
+            color: white;
+            border-bottom: none;
+            border-radius: 16px 16px 0 0;
+            padding: 1.2rem 1.5rem;
+        }
+        #submissionModal .modal-header .modal-title {
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+        #submissionModal .modal-body {
+            background-color: #f8fafc;
+            padding: 1.8rem;
+        }
+        #submissionModal .nav-tabs {
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        #submissionModal .nav-link {
+            border: none;
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            margin-right: 0.5rem;
+            border-radius: 30px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        #submissionModal .nav-link i {
+            margin-right: 6px;
+        }
+        #submissionModal .nav-link.active {
+            background-color: #1a4a7a;
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        #submissionModal h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0a2b4e;
+            border-left: 4px solid #1a4a7a;
+            padding-left: 12px;
+            margin: 1.5rem 0 1rem 0;
+        }
+        #submissionModal .card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            margin-bottom: 1.2rem;
+            transition: box-shadow 0.2s;
+        }
+        #submissionModal .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        #submissionModal .card .card-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
+            color: #1e4663;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+        }
+        #submissionModal .card .card-body {
+            padding: 1.2rem;
+        }
+        #submissionModal .form-label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+        #submissionModal .form-control, #submissionModal .form-select {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        #submissionModal .form-control:focus, #submissionModal .form-select:focus {
+            border-color: #1a4a7a;
+            box-shadow: 0 0 0 3px rgba(26,74,122,0.15);
+            outline: none;
+        }
+        #submissionModal .btn-primary {
+            background-color: #1a4a7a;
+            border: none;
+            padding: 0.5rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        #submissionModal .btn-primary:hover {
+            background-color: #0e3a5f;
+            transform: translateY(-1px);
+        }
+        #submissionModal .btn-secondary {
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            background-color: #e2e8f0;
+            border: none;
+            color: #2c3e50;
+        }
+        #submissionModal .btn-secondary:hover {
+            background-color: #cbd5e1;
+        }
+        #submissionModal .form-check-label {
+            font-size: 0.9rem;
+            margin-left: 0.4rem;
+            color: #2d3748;
+        }
+        #submissionModal .text-muted {
+            font-size: 0.7rem;
+        }
+        .coauthor-row, .coauthor-row-paper {
+            background-color: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .coauthor-row:hover, .coauthor-row-paper:hover {
+            background-color: #fef9c3;
+        }
+        .removeCoauthor, .removePaperCoauthor {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: none;
+            border-radius: 20px;
+            padding: 0.2rem 1rem;
+            font-size: 0.75rem;
+        }
+        .removeCoauthor:hover, .removePaperCoauthor:hover {
+            background-color: #fecaca;
+        }
+        hr {
+            margin: 0.5rem 0;
+        }

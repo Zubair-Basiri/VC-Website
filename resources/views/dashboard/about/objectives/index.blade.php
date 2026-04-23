@@ -47,7 +47,7 @@
                   @foreach ($objectives as $objective)
                     <tr>
                       <td>{{$objective->id}}</td>
-                      <td>{!!$objective->description!!}</td>
+                      <td>{!!Purifier::clean($objective->description)!!}</td>
                       <td><b><a href="{{ route('objectives.edit', $objective->id) }}">Edit</a></b></td>
                     </tr>
                   @endforeach

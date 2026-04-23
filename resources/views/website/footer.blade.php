@@ -29,7 +29,7 @@
                 <ul class="list-unstyled">
                     <p>Dist #9, Near to Loya Eidgha, Loya wyala, <strong>Kandahar, Afghanistan</strong></p>
                     <p><strong>Email: </strong><a href="mailto:vicechancellor@kdru.edu.af">vicechancellor@kdru.edu.af</a></p>
-                    <p><strong>Phone: </strong>+93 700450402</a></p>
+                    <p><strong>Phone: </strong><a href="tel:+93700450402">+93 700450402</a></p>
                 </ul>
             </div>
         </div>

@@ -9,6 +9,7 @@ class Conference extends Model
     protected $table = 'conferences';
     protected $fillable = [
         'genDescription',
+        'guidelineDescription',
         'enLink',
         'psLink',
         'daLink',
@@ -20,8 +21,4 @@ class Conference extends Model
         'posterArLink',
         'posterImage',
     ];
-
-    protected $casts = [
-    'posterImage' => 'array',
-];
 }

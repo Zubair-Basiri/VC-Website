@@ -49,7 +49,7 @@
                     <tr>
                       <td>{{$seminar->id}}</td>
                       <td>{{$seminar->title}}</td>
-                      <td>{!!$seminar->description!!}</td>
+                      <td>{!!Purifier::clean($seminar->description)!!}</td>
                       <td><b><a href="{{ route('seminar.edit', $seminar->id) }}">Edit</a></b>
                         <form action="{{ route('seminar.destroy', $seminar->id) }}" method="POST" class="d-inline">
                         @csrf

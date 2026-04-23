@@ -47,7 +47,7 @@
                   @foreach ($visions as $vision)
                       <tr>
                     <td>{{$vision->id}}</td>
-                    <td>{!!$vision->description!!}</td>
+                    <td>{!!Purifier::clean($vision->description)!!}</td>
                     <td><b><a href="{{ route('vision.edit', $vision->id) }}">Edit</a></b></td>
                   </tr>
                   @endforeach

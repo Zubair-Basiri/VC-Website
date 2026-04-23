@@ -25,9 +25,11 @@
                   <span>Our Policy</span>
                 </h2>
               </div>
-              <div class="col-lg-8" data-aos="fade-left" data-aos-delay="400">
-                <p>{!!$policies->description!!}</p>
-              </div>
+              @if(isset($policies) && $policies && ($policies->description ?? false))
+                    <p>{!! Purifier::clean($policies->description) !!}</p>
+                @else
+                    <p class="text-muted">No policies data available.</p>
+                @endif
             </div>
           </div>
 @endsection

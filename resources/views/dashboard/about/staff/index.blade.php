@@ -53,7 +53,7 @@
                     <td>{{$staff->id}}</td>
                     <td>{{$staff->name}}</td>
                     <td>{{$staff->position}}</td>
-                    <td>{!!$staff->description!!}</td>
+                    <td>{!!Purifier::clean($staff->description)!!}</td>
                     <td>{{$staff->email}}</td>
                     <td>{{$staff->academic_profile}}</td>
                     <td><b><a href="{{ route('staff.edit', $staff->id) }}">Edit</a></b>

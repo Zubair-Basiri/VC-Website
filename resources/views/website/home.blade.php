@@ -8,24 +8,22 @@
 
 @section('content')
 
-<div class="site-section video-section">
-    @if ($video)
-        <video autoplay muted loop playsinline>
-            <source src="{{ asset('storage/' . $video->video) }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    @else
-        <p class="text-center">Yet no Video.</p>
-    @endif
-</div>
-
-<div class="hero-slide owl-carousel site-blocks-cover">
-    @foreach ($carousels as $carousel)
-        <div>
-            <img src="{{ asset('storage/' . $carousel->image) }}" class="intro-section"/>
+{{-- Carousel --}}
+@if(isset($carousels) && $carousels->count() > 0)
+    <div class="hero-slide owl-carousel site-blocks-cover">
+        @foreach ($carousels as $carousel)
+            <div>
+                <img src="{{ asset('storage/' . $carousel->image) }}" class="intro-section" alt="Slide">
+            </div>
+        @endforeach
+    </div>
+@else
+    <div class="site-section video-section" style="background-color: #f8f9fa;">
+        <div class="container text-center py-5">
+            <p class="text-muted">No carousel images available.</p>
         </div>
-    @endforeach
-</div>
+    </div>
+@endif
 
 <div class="site-section" data-aos="fade-up">
     <div class="container">
@@ -89,19 +87,23 @@
 
     <div class="row" data-aos="fade-up">
         <div class="col-12">
-            <div class="owl-slide-3 owl-carousel">
-                @foreach ($achievements as $achievement)
-                    <div class="course-1-item" data-aos="flip-left">
-                        <figure class="thumnail">
-                            <a href="course-single.html"><img src="{{ asset('storage/' . $achievement->image) }}" alt="Image" class="img-fluid"></a>
-                            <div class="category"><h3>{{$achievement->title}}</h3></div>  
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <p class="desc mb-4">{{$achievement->description}}</p>
+            @if(isset($achievements) && $achievements->count() > 0)
+                <div class="owl-slide-3 owl-carousel">
+                    @foreach ($achievements as $achievement)
+                        <div class="course-1-item" data-aos="flip-left">
+                            <figure class="thumnail">
+                                <a href="course-single.html"><img src="{{ asset('storage/' . $achievement->image) }}" alt="Image" class="img-fluid"></a>
+                                <div class="category"><h3>{{ $achievement->title }}</h3></div>  
+                            </figure>
+                            <div class="course-1-content pb-4">
+                                <p class="desc mb-4">{{ $achievement->description }}</p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <p class="text-center text-muted">No achievements to display.</p>
+            @endif
         </div>
     </div>
     </div>
@@ -119,8 +121,12 @@
         </h2>
         </div>
         <div class="col-lg-8" data-aos="fade-left" data-aos-delay="600">
-        <p style="color:white;">{{ \Illuminate\Support\Str::limit(strip_tags($abouts->description), 500, '...') }}</p>
-        <p><a href="{{ route('aboutUs') }}">Read more</a></p>
+            @if(isset($abouts) && $abouts)
+                <p style="color:white;">{{ \Illuminate\Support\Str::limit(strip_tags($abouts->description), 500, '...') }}</p>
+                <p><a href="{{ route('aboutUs') }}">Read more</a></p>
+            @else
+                <p style="color:white;">No information available at the moment.</p>
+            @endif
         </div>
     </div>
     </div>
@@ -135,78 +141,92 @@
             </h2>
             </div>
         </div>
-        <div class="owl-slide owl-carousel">
-            @foreach ($testimonials as $testimonial)
-                <div class="ftco-testimonial-1" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
-                        <img src="{{ asset('images/avatar.jpg') }}" alt="Image" class="img-fluid mr-3">
+        @if(isset($testimonials) && $testimonials->count() > 0)
+            <div class="owl-slide owl-carousel">
+                @foreach ($testimonials as $testimonial)
+                    <div class="ftco-testimonial-1" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="{{ asset('images/avatar.jpg') }}" alt="Image" class="img-fluid mr-3">
+                            <div>
+                            <h3>{{ $testimonial->name }}</h3>
+                            <span>{{ $testimonial->position }}</span>
+                            </div>
+                        </div>
                         <div>
-                        <h3>{{$testimonial->name}}</h3>
-                        <span>{{$testimonial->position}}</span>
+                            <p>&ldquo;{{ $testimonial->message }}&rdquo;</p>
                         </div>
                     </div>
-                    <div>
-                        <p>&ldquo;{{$testimonial->message}}&rdquo;</p>
-                    </div>
-                </div>
-            @endforeach
-        </div> 
+                @endforeach
+            </div>
+        @else
+            <p class="text-center text-muted">No reviews yet.</p>
+        @endif
     </div>
 </div>
 
 
 <div class="section-bg style-1" style="background-image: url('{{ asset('images/VCLogomax.png') }}');" data-aos="fade-up">
     <div class="container">
-        <h2 style="color:white; z-index: 1; position: absolute; margin-top: -40px;">Gallary</h2>
-    <div class="row">
-        @php $var = 600; @endphp
-        @foreach ($galleries as $gallery)
-            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0" data-aos="zoom-out" data-aos-delay="{{$var}}">
-                <img src="{{ asset('storage/' . $gallery->image) }}" class="img-fluid">
+        <h2 style="color:white; z-index: 1; position: absolute; margin-top: -40px;">Gallery</h2>
+        @if(isset($galleries) && $galleries->count() > 0)
+            <div class="row">
+                @php $var = 600; @endphp
+                @foreach ($galleries as $gallery)
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0" data-aos="zoom-out" data-aos-delay="{{$var}}">
+                        <img src="{{ asset('storage/' . $gallery->image) }}" class="img-fluid">
+                    </div>
+                    @php $var += 200; @endphp
+                @endforeach
             </div>
-            @php $var += 200; @endphp
-        @endforeach
-    </div>
-    <p style="color: #51be78; position: absolute; float: right;"><a href="{{ route('galleryCollection') }}">See More ...</a></p>
+            <p style="color: #51be78; position: absolute; float: right;"><a href="{{ route('galleryCollection') }}">See More ...</a></p>
+        @else
+            <div class="row">
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">No gallery images available.</p>
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 
 <div class="news-updates" data-aos="fade-up">
     <div class="container">
-        
-    <div class="row">
-        <div class="col-lg-12" data-aos="fade-down" data-aos-delay="200">
-            <div class="section-heading">
-            <h2 class="text-black">Announcements</h2>
-            <a href="{{ route('news') }}">Read All News</a>
-        </div>
-        <div class="row d-flex">
-            @foreach ($announcements as $announcement)
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="post-entry-big horizontal">
-                        <div class="image-container position-relative">
-                            <a href="{{ asset('storage/' . $announcement->image) }}" class="glightbox" data-gallery="gallery1">
-                                <img src="{{ asset('storage/' . $announcement->image) }}" alt="Image" class="img-fluid">
-                                <div class="overlay">
-                                <i class="fas fa-eye"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="post-content">
-                        <div class="post-meta">
-                            <a>{{$announcement->created_at}}</a>
-                            <span class="mx-1">/</span>
-                            <a href="#">{{$announcement->title}}</a>
-                        </div>
-                        <h3 class="post-heading"><a>{{ \Illuminate\Support\Str::limit(strip_tags($announcement->description), 100, '...') }}</a></h3>
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="col-lg-12" data-aos="fade-down" data-aos-delay="200">
+                <div class="section-heading">
+                    <h2 class="text-black">Announcements</h2>
+                    <a href="{{ route('news') }}">Read All News</a>
                 </div>
-            @endforeach
+                @if(isset($announcements) && $announcements->count() > 0)
+                    <div class="row d-flex">
+                        @foreach ($announcements as $announcement)
+                            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+                                <div class="post-entry-big horizontal">
+                                    <div class="image-container position-relative">
+                                        <a href="{{ asset('storage/' . $announcement->image) }}" class="glightbox" data-gallery="gallery1">
+                                            <img src="{{ asset('storage/' . $announcement->image) }}" alt="Image" class="img-fluid">
+                                            <div class="overlay">
+                                                <i class="fas fa-eye"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-meta">
+                                            <a>{{ $announcement->created_at }}</a>
+                                            <span class="mx-1">/</span>
+                                            <a href="#">{{ $announcement->title }}</a>
+                                        </div>
+                                        <h3 class="post-heading"><a>{{ \Illuminate\Support\Str::limit(strip_tags($announcement->description), 100, '...') }}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <p class="text-center text-muted">No announcements at the moment.</p>
+                @endif
             </div>
         </div>
-        </div>
-    </div>
     </div>
 </div> 
 @endsection
